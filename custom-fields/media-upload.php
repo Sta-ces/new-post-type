@@ -20,12 +20,12 @@ if(!class_exists('\StacesBuilder\Inc\CustomFields\MediaUpload')){
         public function render(): void{
             $image = wp_get_attachment_url( $this->image_id );
             if( preg_match("/(\.pdf)$/", $image) ) $image = includes_url('/images/media/document.png');
-            $content = ($image) ? "<img src='".$image."' width='100' height='auto'>" : _st('Upload image');
+            $content = ($image) ? "<img src='".$image."' width='100' height='auto'>" : __('Upload image');
             $style_remove = ($image) ? 'inherit' : 'none';
             $hidden = ($image) ? $this->image_id : '';
             ?>
                 <a href="#" class="stacesbuilder-upl"><?php echo esc_html($content); ?></a>
-                <a href="#" class="stacesbuilder-rmv" style="display:<?php echo esc_attr($style_remove); ?>"><?php _ste("Remove image"); ?></a>
+                <a href="#" class="stacesbuilder-rmv" style="display:<?php echo esc_attr($style_remove); ?>"><?php _e("Remove image"); ?></a>
                 <input type="hidden" name="<?php echo esc_attr($this->image_name); ?>" id="<?php echo esc_attr($this->image_name); ?>" value="<?php echo esc_attr($hidden); ?>">
             <?php
         }

@@ -7,7 +7,7 @@ use StacesBuilder\Inc\CustomFields\MediaUpload;
 if(!class_exists('\StacesBuilder\Inc\CustomFields\FieldRenderer')){
     class FieldRenderer{
         public static function render(WP_POST|null $post, array $fields, string $description = ""): void{
-            if(!empty($description)) echo "<p style='margin:0 0 2em;'>".esc_html(_st($description))."</p>";
+            if(!empty($description)) echo "<p style='margin:0 0 2em;'>".esc_html(__($description))."</p>";
 
             foreach ($fields as $field) {
                 if(isset($field['name'])){
@@ -24,7 +24,7 @@ if(!class_exists('\StacesBuilder\Inc\CustomFields\FieldRenderer')){
                     }
 
                     echo "<div style='display:flex;flex-direction:column;flex-wrap:wrap;margin-bottom:1em;'>";
-                    if($field_label) echo '<label for="' . esc_attr($field_key) . '">' . esc_html(_st($field_label)) . ($isrequired ? "<span style='color:var(--wp--preset--color--vivid-red);padding-left:5px;'>*</span>" : "") . '</label>';
+                    if($field_label) echo '<label for="' . esc_attr($field_key) . '">' . esc_html(__($field_label)) . ($isrequired ? "<span style='color:var(--wp--preset--color--vivid-red);padding-left:5px;'>*</span>" : "") . '</label>';
                     
                     switch ($field_type) {
                         case 'textarea':

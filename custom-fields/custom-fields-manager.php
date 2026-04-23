@@ -37,8 +37,8 @@ if(!class_exists('\StacesBuilder\Inc\CustomFields\CustomFieldsManager')){
                 $args
             );
             $this->meta_box_id = sanitize_key(!empty($this->args["id"]) ? $this->args["id"]: $this->args["title"]);
-            $this->meta_box_title = _st($this->args["title"]);
-            $this->description = _st($this->args["description"]);
+            $this->meta_box_title = __($this->args["title"]);
+            $this->description = __($this->args["description"]);
             $this->context = $this->args["context"];
             $this->priority = $this->args["priority"];
             $this->post_types = $post_types;

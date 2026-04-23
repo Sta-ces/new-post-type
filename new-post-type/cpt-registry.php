@@ -45,9 +45,9 @@ add_action('update_option', function(string $option, mixed $old, mixed $new): vo
 add_action('admin_init', function(): void{
     add_settings_section(
         'stacesbuilder_cpts_section',
-        _st('Custom Post Types (Staces Builder)'),
+        __('Custom Post Types (Staces Builder)'),
         function(): void {
-            echo '<p>' . (count(CPTRegistry::all()) ? _st('Edit the slugs of your custom content types.') : _st('No Custom Post Types at this moment.')) . '</p>';
+            echo '<p>' . (count(CPTRegistry::all()) ? __('Edit the slugs of your custom content types.') : __('No Custom Post Types at this moment.')) . '</p>';
         },
         'permalink'
     );
@@ -58,7 +58,7 @@ add_action('admin_init', function(): void{
 
         add_settings_field(
             $option,
-            sprintf(_st('Slug for %s'), $args['label']),
+            sprintf(__('Slug for %s'), $args['label']),
             function() use ($option, $current): void{
                 echo '<input type="text" name="' . esc_attr($option) . '" value="' . esc_attr($current) . '" class="regular-text">';
             },

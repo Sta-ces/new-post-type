@@ -13,7 +13,7 @@ if(!class_exists('\StacesBuilder\Inc\NPT\NewPostType')){
 		
 		function __construct(string $addon_name, string $name){
 			$this->addon_name = $addon_name;
-			$this->name = _st($name);
+			$this->name = __($name);
 			$this->version = '3.3.0';
 		}
 		public function run(array $fields = array(), array $args = array(), array $rg = array(), array $tx = array()): void{
@@ -27,7 +27,7 @@ if(!class_exists('\StacesBuilder\Inc\NPT\NewPostType')){
 			$rg_default = array(
 				'public'				=> true,
 				'slug'					=> $slug,
-				'label'					=> _st($this->get_name()),
+				'label'					=> __($this->get_name()),
 				'menu_position'			=> 5,
 				'hierarchical'			=> true,
 				'rewrite'				=> array( 'slug' => $slug ),
@@ -37,7 +37,7 @@ if(!class_exists('\StacesBuilder\Inc\NPT\NewPostType')){
 				'show_in_rest'			=> $is_gutenberg
 			);
 			$tx_default = array(
-				"label" 		=> _st($tx_label),
+				"label" 		=> __($tx_label),
 				"hierarchical" 	=> true,
 				"submenus"		=> array(),
 				"tags"			=> array_merge( [ "hierarchical" => false ], (isset($tx["tags"]) ? $tx["tags"] : []) ),
@@ -80,21 +80,21 @@ if(!class_exists('\StacesBuilder\Inc\NPT\NewPostType')){
 			if(empty($item_singular)) return $all_items;
 			if(empty($item_plural)) $item_plural = $item_singular."s";
 			$default_items = [
-				"all_items" => _st("All ".strtolower($item_plural)),
-				"edit_item" => _st("Edit ".strtolower($item_singular)),
-				"view_item" => _st("View ".strtolower($item_singular)),
-				"update_item" => _st("Update ".strtolower($item_singular)),
-				"add_new_item" => _st("Add a ".strtolower($item_singular)),
-				"new_item_name" => _st("New ".strtolower($item_singular)),
-				"parent_item" => _st("Parent ".strtolower($item_singular)),
-				"parent_item_colon" => _st("Parent ".strtolower($item_singular).":"),
-				"search_items" => _st("Search ".strtolower($item_plural)),
-				"popular_items" => _st("Popular ".strtolower($item_plural)),
-				"separate_items_with_commas" => _st("Separate ".strtolower($item_plural)." with commas"),
-				"add_or_remove_items" => _st("Add or remove ".strtolower($item_plural)),
-				"choose_from_most_used" => _st("Choose from the most used ".strtolower($item_plural)),
-				"not_found" => _st("No ".strtolower($item_plural)." found."),
-				"back_to_items" => _st("← Back to ".strtolower($item_plural))
+				"all_items" => __("All ".strtolower($item_plural)),
+				"edit_item" => __("Edit ".strtolower($item_singular)),
+				"view_item" => __("View ".strtolower($item_singular)),
+				"update_item" => __("Update ".strtolower($item_singular)),
+				"add_new_item" => __("Add a ".strtolower($item_singular)),
+				"new_item_name" => __("New ".strtolower($item_singular)),
+				"parent_item" => __("Parent ".strtolower($item_singular)),
+				"parent_item_colon" => __("Parent ".strtolower($item_singular).":"),
+				"search_items" => __("Search ".strtolower($item_plural)),
+				"popular_items" => __("Popular ".strtolower($item_plural)),
+				"separate_items_with_commas" => __("Separate ".strtolower($item_plural)." with commas"),
+				"add_or_remove_items" => __("Add or remove ".strtolower($item_plural)),
+				"choose_from_most_used" => __("Choose from the most used ".strtolower($item_plural)),
+				"not_found" => __("No ".strtolower($item_plural)." found."),
+				"back_to_items" => __("← Back to ".strtolower($item_plural))
 			];
 			return array_merge($default_items, $all_items);
 		}

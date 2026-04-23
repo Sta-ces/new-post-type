@@ -59,8 +59,8 @@ if(!class_exists('\StacesBuilder\Inc\CustomFields\CustomSettings')){
 			if(!$this->menu_exists($this->slug, true))
 				add_submenu_page( 
 					'options-general.php',
-					_st($this->menu_title),
-					_st($this->menu_title), 
+					__($this->menu_title),
+					__($this->menu_title), 
 					'administrator', 
 					$this->slug, 
 					function(){ $this->render_page(); } 
@@ -85,10 +85,10 @@ if(!class_exists('\StacesBuilder\Inc\CustomFields\CustomSettings')){
 			?>
 			<div class="wrap">
 				<?php if(!empty($this->title)): ?>
-					<h2><?php esc_html(_ste($this->title)); ?></h2>
+					<h2><?php echo esc_html(__($this->title)); ?></h2>
 				<?php endif; ?>
 				<?php if(!empty($this->description)): ?>
-					<p><?php esc_html(_ste($this->description)); ?></p>
+					<p><?php echo esc_html(__($this->description)); ?></p>
 				<?php endif; ?>
 				<form method='POST' action='options.php'>
 					<?php 

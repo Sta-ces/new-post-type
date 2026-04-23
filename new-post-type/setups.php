@@ -42,7 +42,7 @@ if(!class_exists('\StacesBuilder\Inc\NPT\Setups')){
 		}
 		public function npt_description($views){
 			if(isset($this->register['description']) && $this->register['description'] != "")
-				echo "<h4>".esc_html(_st($this->register['description']))."</h4>";
+				echo "<h4>".esc_html(__($this->register['description']))."</h4>";
 			return $views;
 		}
 		public function npt_submenu_page(): void{
@@ -58,8 +58,8 @@ if(!class_exists('\StacesBuilder\Inc\NPT\Setups')){
 
 		function add_submenu_args(array $args): void{
 			$sbm = array_merge([
-				"title" => _st("Options"),
-				"menu_title" => _st("Options item"),
+				"title" => __("Options"),
+				"menu_title" => __("Options item"),
 				"capability" => "manage_options",
 				"callback" => ""
 			], $args);
