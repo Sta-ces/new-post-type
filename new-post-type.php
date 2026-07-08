@@ -6,7 +6,7 @@
  * Version: 3.3.1
  * Author: Cedric Staces
  * Author URI: https://staces.be/
- * Text Domain: staces-builder
+ * Text Domain: stacesbuilder
  */
 
 if (!defined('ABSPATH')) { exit; }
