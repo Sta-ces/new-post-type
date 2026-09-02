@@ -75,7 +75,7 @@ if(!class_exists('\StacesBuilder\Inc\CustomFields\CustomFieldsManager')){
                 $field_key = sanitize_key($field['name']);
                 if (isset($_POST[$field_key])) {
                     $text_field = 
-                        ($field["type"] === "WYSWYG")
+                        (isset($field["type"]) && $field["type"] === "WYSWYG")
                         ? wp_kses_post($_POST[$field_key])
                         : sanitize_text_field($_POST[$field_key]);
                     if($text_field === "") delete_post_meta( $post_id, $field_key );
