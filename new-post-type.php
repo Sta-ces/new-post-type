@@ -1,0 +1,29 @@
+<?php
+/**
+ * Plugin Name: NewPostType
+ * Plugin URI: https://atelier.staces.be/
+ * Description: Dev tools to create easily a new post type with custom fields
+ * Version: 3.3.4
+ * Author: Cedric Staces
+ * Author URI: https://staces.be/
+ * Text Domain: staces-builder-theme
+ */
+
+if (!defined('ABSPATH')) { exit; }
+
+// Plugin activation
+register_activation_hook(__FILE__, function(){ update_option('stacesbuilder_npt_activated', true); });
+// Deactivating the plugin
+register_deactivation_hook(__FILE__, function(){ delete_option('stacesbuilder_npt_activated'); });
+
+require_once(__DIR__.'/custom-fields/custom-fields-manager.php');
+require_once(__DIR__.'/new-post-type/cpt-registry.php');
+require_once(__DIR__.'/new-post-type/setups.php');
+require_once(__DIR__.'/new-post-type/npt.php');
+
+add_action('after_setup_theme', function(){
+    if(has_action('npt-setup')) do_action('npt-setup');
+});
+add_action('init', function(){
+    if(has_action('cfm-setup')) do_action('cfm-setup');
+}, 1000);
