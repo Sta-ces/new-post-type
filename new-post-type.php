@@ -3,11 +3,7 @@
  * Plugin Name: NewPostType
  * Plugin URI: https://atelier.staces.be/
  * Description: Dev tools to create easily a new post type with custom fields
-<<<<<<< HEAD
- * Version: 3.3.1
-=======
  * Version: 3.3.4
->>>>>>> 48c8d5286ce513005f830a164ed331fadc2a8845
  * Author: Cedric Staces
  * Author URI: https://staces.be/
  * Text Domain: staces-builder-theme
